@@ -1,0 +1,108 @@
+.mainContent-leaderboard {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 32em;
+
+	.Leaderboard-filters {
+		display: flex;
+		justify-content: space-between;
+
+		.input-wrap {
+			width: 350em;
+		}
+
+		.Filters {
+			display: flex;
+			gap: 16em;
+
+			.Filters-orderBtns {
+				display: flex;
+				gap: 8em;
+
+				.OrderBtn {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 48em;
+					height: 56em;
+					background: $background-600;
+					border-radius: 6em;
+
+					.OrderBtn-logo {
+						width: 24em;
+						height: 24em;
+						svg {
+							width: 100%;
+							height: 100%;
+							fill: white;
+						}
+					}
+				}
+				.OrderBtn--selected {
+					.OrderBtn-logo > svg {
+						fill: $dark-blue;
+					}
+				}
+			}
+		}
+	}
+
+	.Leaderboard-content {
+		display: flex;
+		flex-direction: column;
+		height: calc(100% - calc(56em + 48em + 2 * 32em));
+		gap: 16em;
+		border-radius: 6em;
+		overflow-y: scroll;
+
+		.Content-noResult {
+			margin-top: 5%;
+			color: white;
+			font-size: 18em;
+			text-align: center;
+		}
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+		-ms-overflow-style: none;  /* IE and Edge */
+		scrollbar-width: none;  /* Firefox */
+	}
+	.Leaderboard-content--maxSize {
+		height: calc(100% - calc(56em + 32em));
+	}
+
+	@media (max-width: $laptop) {
+		.Leaderboard-filters > .input-wrap {
+			width: 250em;
+		}
+	}
+
+	@media (max-width: $tablet) {
+		position: relative;
+
+		.Leaderboard-filters {
+			font-size: 0.9em;
+			flex-direction: column;
+			gap: 16em;
+
+			.Filters-orderBtns {
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+		}
+	}
+
+	@media (max-width: 375px) {
+		.Leaderboard-filters {
+			font-size: 0.75em;
+		}
+	}
+
+	@media (max-width: 320px) {
+		font-size: 4.8rem;
+	}
+}

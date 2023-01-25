@@ -1,0 +1,106 @@
+.MatchHistory {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 32em;
+
+	.MatchHistory-filters {
+		display: flex;
+		justify-content: space-between;
+
+		.input-wrap {
+			width: 350em;
+		}
+
+		.Filters {
+			display: flex;
+			gap: 16em;
+
+			.Filters-orderBtns {
+				display: flex;
+				gap: 8em;
+
+				.OrderBtn {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 48em;
+					height: 56em;
+					background: $background-600;
+					border-radius: 6em;
+
+					.OrderBtn-logo {
+						width: 24em;
+						height: 24em;
+						svg {
+							width: 100%;
+							height: 100%;
+							fill: white;
+						}
+					}
+				}
+				.OrderBtn--selected {
+					.OrderBtn-logo > svg {
+						fill: $dark-blue;
+					}
+				}
+			}
+		}
+	}
+
+	.MatchHistory-content {
+		display: flex;
+		flex-direction: column;
+		gap: 16em;
+
+		.Content-Versus {
+			display: flex;
+			border-radius: 6em;
+			background: $background-600;
+
+			.VersusTag--opponent {
+				cursor: pointer;
+			}
+		}
+
+		.Content-noResult {
+			font-size: 18em;
+			color: white;
+			text-align: center;
+		}
+	}
+
+	@media (max-width: $laptop) {
+		.MatchHistory-filters > .input-wrap {
+			width: 300em;
+		}
+	}
+
+	@media (max-width: $tablet) {
+		.MatchHistory-filters {
+			flex-direction: column;
+			gap: 16em;
+		}
+	}
+
+	@media (max-width: $phone) {
+		.MatchHistory-filters {
+			font-size: 0.86em;
+		}
+
+		.Content-Versus {
+			flex-direction: column;
+		}
+	}
+
+	@media (max-width: 375px) {
+		.MatchHistory-filters {
+			font-size: 0.75em;
+		}
+	}
+
+	@media (max-width: 320px) {
+		font-size: 4rem;
+	}
+}

@@ -1,0 +1,61 @@
+.ProfileTag {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 24em 40em;
+	background: $background-600;
+	border-radius: 6em;
+
+	.ProfileTag-btnsWrap {
+		display: flex;
+		gap: 16em;
+		height: 56em;
+
+		.ProfileTag-status {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0 18em;
+			gap: 10em;
+			height: 56em;
+			border: none;
+			border-radius: 6em;
+			background: $background-700;
+
+			.Status-value {
+				font-family: 'Poppins';
+				font-size: 16em;
+				line-height: 100%;
+				color: white;
+			}
+		}
+
+		.Status--active {
+			background: $cheat-blue;
+		}
+	}
+
+	@media (max-width: $laptop) {
+		.ProfileTag-btnsWrap {
+			font-size: 0.8em;
+		}
+	}
+
+	@media (max-width: $tablet) {
+		font-size: 0.8em;
+		.ProfileTag-btnsWrap {
+			font-size: 0.9em;
+		}
+	}
+
+	@media (max-width: 640px) {
+		flex-direction: column;
+		gap: 32em;
+	}
+
+	@media (max-width: $phone) {
+		.ProfileTag-btnsWrap {
+			font-size: 0.7em;
+		}
+	}
+}

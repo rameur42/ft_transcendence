@@ -1,0 +1,63 @@
+.Status {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4em;
+	border-radius: 6em;
+
+	.Status-value {
+		font-size: 12em;
+		font-weight: 600;
+		line-height: 100%;
+		letter-spacing: -0.01em;
+	}
+}
+
+.Status--ONLINE {
+	width: 59em;
+	color: $green;
+	border: 2px solid $green;
+}
+.Status--PUBLIC {
+	width: 57em;
+	color: $green;
+	border: 2px solid $green;
+}
+.Status--OFFLINE {
+	width: 59em;
+	color: $white-200;
+	border: 2px solid $white-200;
+}
+.Status--PROTECTED {
+	width: 79em;
+	color: $orange;
+	border: 2px solid $orange;
+}
+.Status--INGAME {
+	width: 71em;
+	color: $orange;
+	border: 2px solid $orange;
+}
+.Status--PRIVATE {
+	width: 63em;
+	color: $red;
+	border: 2px solid $red;
+}
+
+.Status--USERS {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+	padding: 8em 10em;
+	border-radius: 6em;
+	background: $background-600;
+	color: white;
+
+	.Status-value {
+		font-size: 12em;
+		font-weight: 600;
+		line-height: 100%;
+		letter-spacing: -0.01em;
+		white-space: nowrap;
+	}
+}

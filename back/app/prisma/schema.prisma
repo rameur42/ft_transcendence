@@ -1,0 +1,229 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+	provider = "prisma-client-js"
+	binaryTargets = ["native", "linux-musl"]
+}
+
+datasource db {
+	provider = "postgresql"
+	url      = env("DATABASE_URL")
+}
+
+model User {
+	id				String					@id @default(cuid())
+	username		String					@unique
+	email			String					@unique
+	password		String
+	auth			Boolean					@default(false)
+	
+	avatar			String					@default("http://localhost:3000/avatars/default.png")
+
+	status          Status          		@default(OFFLINE)
+
+	level			Int			    		@default(0)
+	experience		Int			    		@default(0)
+	next_level		Int			    		@default(100)
+	rank_point      Int             		@default(0)
+    wins            Int             		@default(0)
+    loses           Int             		@default(0)
+    played          Int             		@default(0)
+
+	tfa_token		String?
+	tfa_secret		String?
+	tfa_enabled		Boolean					@default(false)
+
+	friends			Friendship[]			@relation("friends")
+	friends_request	Friendship[]			@relation("friendsRequests")
+
+	user_blocked	Blocked[]				@relation("blocked")
+	user_blocked_by	Blocked[]				@relation("blockedBy")
+
+	games			Game[]					@relation("games")
+	games_request	Game[]					@relation("gamesRequests")
+
+	messagesSent		Message[]			@relation("messagesSender")
+	channelsOn			ChannelUser[]		@relation("channelUsers")
+	chanActionSender	ChannelAction[]		@relation("channelActionsSender")
+	chanActionTarget	ChannelAction[]		@relation("channelActionsTarget")
+	chanInvitations		ChannelInvitation[]	@relation("userInvites")
+
+	updatedAt		DateTime				@updatedAt @default(now())
+
+	@@map("users")
+}
+
+model Friendship {
+	id				String          @id @default(cuid())
+	
+	sender			User           	@relation("friends", fields: [sender_id], references: [id], onDelete: Cascade)
+	sender_id		String
+	
+	receiver		User            @relation("friendsRequests", fields: [receiver_id], references: [id], onDelete: Cascade)
+	receiver_id		String  
+	
+	status			InviteStatus    @default(PENDING)
+
+	channel			Channel?		@relation("directMessage", fields: [channel_id], references: [id], onDelete: Cascade)
+	channel_id		String?			@unique
+
+	@@unique([sender_id, receiver_id])
+	@@map("friendships")
+}
+
+model Blocked {
+	id				String          @id @default(cuid())
+
+	user			User           	@relation("blocked", fields: [user_id], references: [id], onDelete: Cascade)
+	user_id			String
+
+	blocked			User            @relation("blockedBy", fields: [blocked_id], references: [id], onDelete: Cascade)
+	blocked_id		String  
+	
+	@@unique([user_id, blocked_id])
+	@@map("blocked_users")
+}
+
+model Game {
+	id			  			String          @id @unique
+
+	player_one				User            @relation("games", fields: [player_one_id], references: [id], onDelete: Cascade)
+	player_one_id			String
+	player_one_score		Int				@default(0)
+	player_one_level		Int				@default(0)
+	player_one_experience	Int 			@default(0)
+	player_one_next_level	Int 			@default(100)
+
+	player_two	  			User            @relation("gamesRequests", fields: [player_two_id], references: [id], onDelete: Cascade)
+	player_two_id 			String
+	player_two_score 		Int				@default(0)
+	player_two_level		Int				@default(0)
+	player_two_experience	Int 			@default(0)
+	player_two_next_level	Int				@default(100)
+
+	createdAt				DateTime		@default(now())
+	@@map("games")
+}
+
+model Channel {
+	id			String			@id @default(cuid())
+	name		String?			@unique
+	status		ChannelType		@default(PUBLIC)
+	password	String?
+	avatar		String			@default("http://localhost:3000/avatars/default.png")
+	usersCount	Int				@default(1)
+
+	createdAt	DateTime		@default(now())
+	updatedAt	DateTime		@updatedAt
+
+	messages		Message[]			@relation("channelMessages")
+	users			ChannelUser[]		@relation("channelUsers")
+	channelActions	ChannelAction[]		@relation("channelActions")
+	invites			ChannelInvitation[]	@relation("channelInvites")
+
+	friendship		Friendship?			@relation("directMessage")
+
+	@@map("channels")
+}
+
+model ChannelInvitation {
+	id				String			@id @default(cuid())
+	createdAt		DateTime		@default(now())
+	updatedAt		DateTime		@updatedAt
+	senderId		String
+	status			InviteStatus	@default(PENDING)
+
+	channel			Channel		@relation("channelInvites", fields: [channelId], references: [id], onDelete: Cascade)
+	channelId		String
+
+	invitedUser		User		@relation("userInvites", fields: [invitedUserId], references: [id], onDelete: Cascade)
+	invitedUserId	String
+
+	@@unique([channelId, invitedUserId])
+	@@map("channel_invites")
+}
+
+model Message {
+	id 		String          @id @default(cuid())
+	content String
+
+	createdAt	DateTime		@default(now())
+	updatedAt	DateTime		@updatedAt
+
+	sender		User			@relation("messagesSender", fields: [senderId], references: [id], onDelete: Cascade)
+	senderId	String
+
+	channel		Channel			@relation("channelMessages", fields: [channelId], references: [id], onDelete: Cascade)
+	channelId	String
+
+	@@map("messages")
+}
+
+model ChannelUser {
+	user		User			@relation("channelUsers", fields: [userId], references: [id], onDelete: Cascade)
+	userId		String
+	channel		Channel			@relation("channelUsers", fields: [channelId], references: [id], onDelete: Cascade)
+	channelId	String
+
+	role		ChannelRole		@default(MEMBER)
+	createAt	DateTime		@default(now())
+	updatedAt	DateTime		@updatedAt
+
+	@@id([userId, channelId])
+	@@map("channel_users")
+}
+
+model ChannelAction {
+	id					String				@id @default(cuid())
+	sender				User 				@relation("channelActionsSender", fields: [senderId], references: [id], onDelete: Cascade)
+	senderId			String
+
+	target				User 				@relation("channelActionsTarget", fields: [targetId], references: [id], onDelete: Cascade)
+	targetId			String
+
+	channel				Channel				@relation("channelActions", fields: [channelId], references: [id], onDelete: Cascade)
+	channelId			String
+
+	channelActionTime	DateTime?
+	type				ChannelActionType
+
+	created				DateTime	@default(now())
+	updatedAt			DateTime	@updatedAt
+
+	@@unique([channelId, targetId, type])
+	@@map("channel_actions")
+}
+
+enum ChannelType {
+	PUBLIC			@map("public")
+	PRIVATE			@map("private")
+	PROTECTED		@map("protected")
+	DIRECTMESSAGE	@map("directmessage")
+}
+
+enum ChannelRole {
+	OWNER		@map("owner")
+	ADMIN		@map("admin")
+	MEMBER		@map("member")
+}
+
+enum ChannelActionType {
+	BAN		@map("ban")
+	MUTE	@map("mute")
+}
+
+enum Status {
+	OFFLINE @map("offline")
+	ONLINE  @map("online")
+	INGAME  @map("ingame")
+
+	@@map("_status")
+}
+
+enum InviteStatus {
+	PENDING		@map("pending")
+	ACCEPTED	@map("accepted")
+	DECLINED	@map("declined")
+	NONE		@map("none")
+}

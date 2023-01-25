@@ -1,0 +1,47 @@
+.ConvList {
+	width: 100%;
+	height: calc(100% - (96em + 32em));
+	display: flex;
+	flex-direction: column;
+	gap: 32em;
+
+	.ConvList-switch {
+		display: flex;
+	}
+
+	.ConvList-contentWrap {
+		display: flex;
+		flex-direction: column;
+		gap: 16em;
+		width: 100%;
+		height: calc(100% - calc(44em + 32em));
+
+		.ConvList-content {
+			width: 100%;
+			height: calc(100% - (48em + 16em));
+			display: flex;
+			flex-direction: column;
+			border-radius: 6em;
+			gap: 24em;
+			overflow-y: scroll;
+			&::-webkit-scrollbar {
+				display: none;
+			}
+			-ms-overflow-style: none;  /* IE and Edge */
+			scrollbar-width: none;  /* Firefox */
+
+			.Content-noResult {
+				font-size: 18em;
+				color: white;
+				text-align: center;
+			}
+		}
+		.ConvList-content--add {
+			gap: 8em;
+		}
+	}
+
+	&.inSettings {
+		height: calc(100% - (96em + 2 * 32em + 48em));
+	}
+}

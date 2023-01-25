@@ -1,0 +1,78 @@
+.VersusTag {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 6em 0 0 6em;
+	min-height: 136em;
+	padding: 0 32em;
+	gap: 32em;
+
+	.VersusTag-score {
+		display: flex;
+		flex-direction: row-reverse;
+		width: 100%;
+
+		.Score-logo {
+			width: 34.3em;
+			height: 34.3em;
+
+			svg {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	@media (max-width: $laptop) {
+		padding: 0 12em 0 32em;
+		gap: 20em;
+		.UserInfos {
+			font-size: 0.8em;
+		}
+		.VersusTag-score {
+			font-size: 0.8em;
+		}
+	}
+
+	@media (max-width: $tablet) {
+		flex-direction: column;
+		padding: 24em 12em 24em 32em;
+		align-items: flex-start;
+		justify-content: center;
+		.UserInfos {
+			font-size: 0.76em;
+		}
+	}
+
+	@media (max-width: $phone) {
+		padding: 24em 32em;
+		.VersusTag-score {
+			justify-content: center;
+		}
+	}
+}
+
+.VersusTag--reverse {
+	flex-direction: row-reverse;
+	border-radius: 0 6em 6em 0;
+
+	.VersusTag-score {
+		flex-direction: row;
+	}
+
+	@media (max-width: $laptop) {
+		padding: 0 32em 0 12em;
+	}
+
+	@media (max-width: $tablet) {
+		flex-direction: column;
+		padding: 24em 32em 24em 12em;
+		align-items: flex-end;
+	}
+
+	@media (max-width: $phone) {
+		padding: 24em 32em;
+		flex-direction: column-reverse;
+	}
+}

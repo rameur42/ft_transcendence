@@ -1,0 +1,177 @@
+.mainContent-settings {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 32em;
+	overflow-y: scroll;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+
+	.Settings-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 32em;
+
+		.Setting {
+			display: flex;
+			flex-direction: column;
+			padding: 32em;
+			gap: 32em;
+			background: $background-600;
+			border-radius: 6em;
+			position: relative;
+
+			.Setting-tag {
+				display: flex;
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 16em 24em;
+				background: $background-700;
+				border-radius: 0 6em 0 6em;
+
+				.Tag-value {
+					color: $white;
+					font-style: normal;
+					font-weight: 500;
+					font-size: 18em;
+					line-height: 100%;
+				}
+			}
+
+			.Setting-label {
+				color: $white;
+				font-weight: 600;
+				font-size: 20em;
+				line-height: 100%;
+			}
+
+			.input-wrap {
+				width: 250em;
+				input {
+					color: $white-200;
+
+					&:focus, &:hover {
+						color: white;
+					}
+				}
+			}
+		}
+
+		.Setting--profile {
+			flex-direction: row;
+			align-items: center;
+		}
+
+		.Setting-password > .Passwords-wrapper {
+			display: flex;
+			gap: 16em;
+			.New-password {
+				display: flex;
+				gap: 16em;
+			}
+		}
+
+		.Setting-2fa {
+			.Setting-2fa-content {
+				display: flex;
+				gap: 48em;
+				.QrCode-2fa {
+					width: 200em;
+					height: 200em;
+					border-radius: 6em;
+				}
+				.Code-2fa {
+					display: flex;
+					flex-direction: column;
+					gap: 16em;
+					.Toggle-wrapper {
+						display: flex;
+						align-items: center;
+						gap: 16em;
+
+						.Toggle-label {
+							color: $white;
+							font-weight: 600;
+							font-size: 18em;
+							line-height: 100%;
+						}
+					}
+					.input-wrap {
+						width: 206em;
+					}
+				}
+			}
+
+			.GenerateBtn-wrapper {
+				display: flex;
+				flex-direction: column;
+				gap: 16em;
+			}
+
+			.Setting-moreInfos {
+				font-weight: 500;
+				font-size: 12em;
+				line-height: 100%;
+				color: $white-200;
+			}
+		}
+	}
+
+	.Settings-btns {
+		display: flex;
+		gap: 16em;
+		justify-content: flex-end;
+	}
+
+	@media (max-width: $tablet) {
+		font-size: 0.94em;
+
+		.Setting-password > .Passwords-wrapper {
+			flex-direction: column;
+		}
+	}
+
+	@media (max-width: 520px) {
+		.Setting-password > .Passwords-wrapper > .New-password {
+			flex-direction: column;
+		}
+
+		.Setting-2fa {
+			.Setting-2fa-content {
+				flex-direction: column-reverse;
+			}
+		}
+	}
+
+	@media (max-width: 425px) {
+		.Settings-wrapper {
+			.Setting {
+				.Setting-tag {
+					font-size: 0.8em;
+				}
+				align-items: center;
+				padding: 64em 32em 32em 32em;
+			}
+			.Setting--profile {
+				flex-direction: column;
+			}
+			.Setting-2fa {
+				.Setting-2fa-content, .Code-2fa {
+					align-items: center;
+				}
+				.GenerateBtn-wrapper {
+					align-items: center;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 320px) {
+		font-size: 4.52rem;
+	}
+}

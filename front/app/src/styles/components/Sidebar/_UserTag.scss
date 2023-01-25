@@ -1,0 +1,86 @@
+.UserTag {
+	width: 418em;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12em 16em;
+	background: rgba(31, 30, 44, 0.5);
+	border-radius: 6em;
+	gap: 16em;
+
+	.UserTag-infos {
+		width: 100%;
+		display: flex;
+		gap: 12em;
+		.UserTag-avatar {
+			width: 32em;
+			height: 32em;
+			border-radius: 50%;
+		}
+
+		.UserTag-userNameWrap {
+			display: flex;
+			background: $background-700;
+			border-radius: 24em;
+			padding: 8em 16em;
+			position: relative;
+			cursor: pointer;
+
+			.UserTag-userName {
+				width: 100%;
+				font-weight: 500;
+				font-size: 16em;
+				line-height: 100%;
+				color: white;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			&:hover {
+				.ToolTip {
+					visibility: visible;
+				}
+			}
+		}
+		.UserNameWrap--min {
+			max-width: 48em;
+		}
+	}
+
+	.UserTag-options {
+		display: flex;
+		gap: 16em;
+
+		.ActionBtn {
+			opacity: 0;
+		}
+	}
+
+	&:hover {
+		.UserTag-userNameWrap {
+			background: $dark-blue;
+			transition: background 150ms ease-in-out;
+		}
+		.ActionBtn {
+			opacity: 1;
+			transition: opacity 150ms ease-in-out;
+			transition: background 150ms ease-in-out;
+		}
+	}
+}
+
+.UserTag--me {
+	background: rgba(31, 30, 44, 0.7);
+	.UserTag-infos{
+		.UserTag-userNameWrap {
+			background: #1c1c27;
+		}
+	}
+
+	&:hover {
+		.UserTag-userNameWrap {
+			background: $dark-blue;
+			transition: background 150ms ease-in-out;
+		}
+	}
+}

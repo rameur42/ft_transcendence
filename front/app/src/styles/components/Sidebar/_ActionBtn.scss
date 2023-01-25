@@ -1,0 +1,156 @@
+.ActionBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32em;
+	height: 32em;
+	background: $background-600;
+	border: none;
+	border-radius: 50%;
+	position: relative;
+	
+
+	.ActionBtn-logo {
+		width: 16em;
+		height: 16em;
+		svg {
+			top: 0;
+			width: 100%;
+			height: 100%;
+			fill: $white-200;
+		}
+	}
+
+	&:hover {
+		.ActionBtn-logo svg {
+			fill: white;
+			transition: fill 150ms ease-in-out;
+		}
+		.ToolTip {
+			visibility: visible;
+		}
+	}
+}
+
+.ActionBtn--mute {
+	background: #FF8A00;
+	.ActionBtn-logo > svg {
+		fill: white;
+	}
+
+	&:hover {
+		background: rgba(255, 138, 0, 0.5) !important;
+		transition: background 150ms ease-in-out;
+		.ActionBtn-logo > svg {
+			transition: fill 150ms ease-in-out;
+			fill: $white-200;
+		}
+	}
+}
+
+.ActionBtn--ban {
+	background: $red;
+	.ActionBtn-logo > svg {
+		fill: white;
+	}
+
+	&:hover {
+		background: rgba(227, 47, 47, 0.5) !important;
+		transition: background 150ms ease-in-out;
+		.ActionBtn-logo > svg {
+			transition: fill 150ms ease-in-out;
+			fill: $white-200;
+		}
+	}
+}
+
+.ActionBtn--block {
+	background: $orange;
+	.ActionBtn-logo > svg {
+		fill: white;
+	}
+
+	&:hover {
+		background: rgba(255, 138, 0, 0.5) !important;
+		transition: background 150ms ease-in-out;
+		.ActionBtn-logo > svg {
+			transition: fill 150ms ease-in-out;
+			fill: $white-200;
+		}
+	}
+}
+
+.ActionBtn--game {
+	opacity: 1;
+	cursor: default;
+	padding: 0 12em;
+	justify-content: flex-start;
+	background: $cheat-blue;
+	border-radius: 32em;
+	gap: 16em;
+	animation: strecth-animation 5s ease-in-out;
+
+	.ActionBtn-logo > svg {
+		fill: white;
+	}
+
+	.ActionBtn-game {
+		display: flex;
+		width: 100%;
+		height: 20em;
+		gap: 16em;
+		padding: 0 12em;
+		.Game-btn {
+			flex: 1;
+			background: none;
+			font-family: 'Poppins';
+			font-size: 12em;
+			font-weight: 600;
+			color: white;
+			transition: color 200ms;
+			animation: gameBtn-animation 5s ease-in-out;
+			opacity: 0;
+			&:hover {
+				color: $background-600;
+				font-weight: 700;
+			}
+		}
+	}
+
+	&:hover {
+		.ToolTip {
+			visibility: hidden;
+		}
+	}
+}
+
+@keyframes strecth-animation {
+	0% {
+		width: 32em;
+	}
+	7% {
+		width: 274em;
+
+	}
+	93% {
+		width: 274em;
+	}
+	100% {
+		width: 32em;
+	}
+}
+
+@keyframes gameBtn-animation {
+	5% {
+		opacity: 0;
+	}
+	10% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	95% {
+		opacity: 0;
+	}
+}

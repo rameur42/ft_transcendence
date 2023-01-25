@@ -1,0 +1,38 @@
+.PagesSelector {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8em;
+
+	.PagesSelector-Btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 50em;
+		height: 48em;
+		padding: 0 20em;
+		border: none;
+		border-radius: 6em;
+		background: $background-600;
+
+		.Btn-value {
+			font-family: 'Poppins';
+			font-style: normal;
+			font-weight: 600;
+			font-size: 16em;
+			line-height: 100%;
+			letter-spacing: -0.01em;
+			color: #FFFFFF;
+		}
+
+		.Btn-logo {
+			svg {
+				width: 28em;
+				height: 28em;
+			}
+		}
+	}
+
+	.Pages--selected {
+		background: $dark-blue;
+	}
+}

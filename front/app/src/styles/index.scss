@@ -1,0 +1,72 @@
+@import './settings';
+
+
+//  View
+@import './views/Home';
+@import './views/Accounts';
+
+//  Login
+@import './components/Forms/Form';
+
+//  Navbar
+@import './components/Navbar/Navbar';
+@import './components/Navbar/NavbarSectionSelector';
+@import './components/Navbar/UserMenu.scss';
+
+//  Sidebar
+@import './components/Sidebar/Sidebar';
+@import './components/Sidebar/SwitchBtn';
+@import './components/Sidebar/SidebarContent';
+@import './components/Sidebar/SidebarTag';
+@import './components/Sidebar/SidebarNewChan';
+@import './components/Sidebar/NewChanContent';
+@import './components/Sidebar/UserTag';
+@import './components/Sidebar/Status';
+@import './components/Sidebar/SidebarConv';
+@import './components/Sidebar/ConvTag';
+@import './components/Sidebar/ConvContent';
+@import './components/Sidebar/ConvList';
+@import './components/Sidebar/DropDownList';
+@import './components/Sidebar/ActionBtn';
+@import './components/Sidebar/ChanSettings';
+@import './components/Sidebar/StatusBtns';
+@import './components/Sidebar/Message';
+
+//  Play
+@import './components/Play/Play';
+@import './components/Play/Matchmaking';
+@import './components/Play/Game';
+@import './components/Play/Win';
+
+//  Leaderboard
+@import './components/Leaderboard/Leaderboard';
+@import './components/Leaderboard/LeaderboardTag';
+@import './components/Leaderboard/LeaderboardTagStat';
+
+//  Spectate
+@import './components/Spectate/Spectate';
+@import './components/Spectate/VersusTag';
+
+//  Profile
+@import './components/Profile/Profile';
+@import './components/Profile/ProfileTag';
+@import './components/Profile/ProfileStat';
+@import './components/Profile/MatchHistory';
+
+//  Settings
+@import './components/Settings/Settings';
+@import './components/Settings/ToggleSwitch';
+
+//  Utils
+@import './components/Utils/BaseInput';
+@import './components/Utils/Btn';
+@import './components/Utils/PagesSelector';
+@import './components/Utils/DropDownMenu';
+@import './components/Utils/UserInfos';
+@import './components/Utils/ToolTip';
+@import './components/Utils/UploadAvatar';
+@import './components/Utils/LoaderSpinner';
+
+//  Notifications
+@import './components/Notifications/Notifications';
+@import './components/Notifications/NotifTag';

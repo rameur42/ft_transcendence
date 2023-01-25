@@ -1,0 +1,131 @@
+.UserInfos {
+	display: flex;
+	align-items: center;
+	gap: 16em;
+
+	.UserInfos-avatar {
+		width: 64em;
+		height: 64em;
+		border-radius: 50%;
+	}
+
+	.UserInfos-content {
+		width: 200em;
+		display: flex;
+		flex-direction: column;
+		gap: 6em;
+
+		.Content-name {
+			width: 100%;
+			font-family: 'Poppins';
+			font-style: normal;
+			font-size: 22em;
+			font-weight: 500;
+			line-height: 130%;
+			color: white;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			-moz-user-select:text; /* Firefox */
+			-webkit-user-select: text; /* Chrome, Safari, Opéra depuis la version 15 */
+			-ms-user-select: text; /* Internet explorer depuis la version 10 et Edge */
+			user-select: text; /* Propriété standard */
+		}
+
+		.Content-level {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			gap: 6em;
+
+			.Level-percentWrap {
+				display: flex;
+				width: 100%;
+				height: 6em;
+				border-radius: 8em;
+
+				.Level-percent {
+					display: flex;
+					border-radius: 8em;
+					height: 100%;
+					box-shadow: inset 0em 4em 4em rgba(0, 0, 0, 0.1);
+				}
+			}
+
+			.Level {
+				font-family: 'Poppins';
+				font-size: 14em;
+				font-weight: 500;
+				line-height: 100%;
+				color: $white;
+			}
+		}
+	}
+}
+
+.UserInfos--reverse {
+	flex-direction: row-reverse;
+
+	.Content-name {
+		text-align: right;
+	}
+
+	.Content-level {
+		align-items: flex-end;
+	}
+
+	.Level-percentWrap {
+		flex-direction: row-reverse;
+	}
+}
+
+.UserInfos--XL {
+	gap: 24em;
+
+	.UserInfos-avatar {
+		width: 128em;
+		height: 128em;
+	}
+
+	.UserInfos-content {
+		gap: 12em;
+
+		.Content-name {
+			font-size: 24em;
+		}
+
+		.Content-level {
+			gap: 10em;
+		}
+	}
+}
+
+.UserInfos--XS {
+	gap: 12em;
+
+	.UserInfos-avatar {
+		width: 52em;
+		height: 52em;
+	}
+
+	.UserInfos-content {
+		gap: 6em;
+		width: 116em;
+
+		.Content-name {
+			font-size: 18em;
+		}
+
+		.Content-level {
+			gap: 6em;
+
+			.Level-percentWrap {
+				height: 4em;
+			}
+
+			.Level {
+				font-size: 12em;
+			}
+		}
+	}
+}

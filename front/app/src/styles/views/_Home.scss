@@ -1,0 +1,49 @@
+.Home {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.BodyLayout {
+		display: flex;
+		justify-content: center;
+		height: 100%;
+		min-height: 540px;
+		padding: 32px 0;
+		gap: 32rem;
+		position: relative;
+		overflow: hidden;
+
+		.BodyLayout-mainContent {
+			width: 1310rem;
+		}
+
+		@media (min-width: 1920px) {
+			font-size: 1px;
+			.BodyLayout-mainContent {
+				width: 1310px;
+			}
+		}
+
+		@media (max-width: $laptopL) {
+			justify-content: center;
+			font-size: 0.8px;
+
+			.BodyLayout-mainContent {
+				width: calc(100% - 84px);
+			}
+		}
+
+		@media (max-width: $tablet) {
+			.BodyLayout-mainContent {
+				width: calc(100% - 64px);
+			}
+		}
+
+		@media (max-width: 320px) {
+			.BodyLayout-mainContent {
+				width: calc(100% - 400rem);
+			}
+		}
+	}
+}

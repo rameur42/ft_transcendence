@@ -1,0 +1,220 @@
+.NotifTag {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 350em;
+	min-height: 88em;
+	padding: 12em 16em 9em 16em;
+	gap: 24em;
+	background: rgba(36, 35, 51, 0.6);
+	box-shadow: 0 4em 4em rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(4px);
+	border-bottom: 3px solid $white-200;
+	border-radius: 0 12em 12em 0;
+	animation: notifPop .5s ease-in-out;
+	position: relative;
+
+	.NotifTag-closeBtn {
+		cursor: pointer;
+		width: 36em;
+		height: 36em;
+		svg {
+			width: 100%;
+			height: 100%;
+			fill: $white-200;
+			transition: fill .15s;
+		}
+		&:hover {
+			svg {
+				fill: #c8c8d6;
+			}
+		}
+	}
+
+	.NotifTag-content {
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		gap: 24em;
+
+		.Content-avatar {
+			width: 64em;
+			height: 64em;
+			border-radius: 50%;
+		}
+
+		.Content-text {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			font-family: 'Poppins';
+			letter-spacing: -0.01em;
+			text-align: end;
+			max-width: 170em;
+			gap: 8em;
+
+			.Text-label {
+				width: 100%;
+				font-size: 18em;
+				font-weight: 600;
+				line-height: 100%;
+				color: white;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.Text-value {
+				width: 100%;
+				color: white;
+				font-size: 14em;
+				font-weight: 500;
+				letter-spacing: -0.01em;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 0%;
+		height: 3px;
+		opacity: 0.6;
+		animation: timer-animation 5s linear;
+	}
+}
+
+.NotifTag--infoB {
+	.NotifTag-content > .Content-text {
+		.Text-value {
+			color: $cheat-blue;
+		}
+	}
+	&::after {
+		background-color: $cheat-blue;
+	}
+}
+
+.NotifTag--success {
+	.NotifTag-content > .Content-text {
+		.Text-label {
+			color: $green;
+		}
+	}
+	&::after {
+		background-color: $green;
+	}
+}
+
+.NotifTag--error {
+	.NotifTag-content > .Content-text {
+		.Text-label {
+			color: $red;
+		}
+	}
+	&::after {
+		background-color: $red;
+	}
+}
+
+.NotifTag--infoY {
+	.NotifTag-content > .Content-text {
+		.Text-value {
+			color: #CCCF3C;
+		}
+	}
+	&::after {
+		background-color: #CCCF3C;
+	}
+}
+
+.NotifTag--infoG {
+	.NotifTag-content > .Content-text {
+		.Text-value {
+			color: $green;
+		}
+	}
+	&::after {
+		background-color: $green;
+	}
+}
+
+.NotifTag--infoR {
+	.NotifTag-content > .Content-text {
+		.Text-value {
+			color: $red;
+		}
+	}
+	&::after {
+		background-color: $red;
+	}
+}
+
+.NotifTag--privateMessage {
+	.NotifTag-content > .Content-text {
+		.Text-label {
+			color: $cheat-blue;
+		}
+		.Text-value {
+			color: white;
+		}
+	}
+	&::after {
+		background-color: $cheat-blue;
+	}
+}
+
+.NotifTag--channelMessage {
+	.NotifTag-content > .Content-text {
+		.Text-label {
+			color: #CCCF3C;
+		}
+		.Text-value {
+			color: white;
+		}
+	}
+	&::after {
+		background-color: #CCCF3C;
+	}
+}
+
+.NotifTag--close {
+	animation: notifClose .5s ease-in-out;
+}
+
+@keyframes notifPop {
+	0% {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes notifClose {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+}
+
+@keyframes timer-animation {
+	0% {
+		width: 97%;
+	}
+	10% {
+		width: 92%;
+	}
+	100% {
+		width: 0%;
+	}
+}

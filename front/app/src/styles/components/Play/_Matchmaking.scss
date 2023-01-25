@@ -1,0 +1,143 @@
+.matchmaking_content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+	flex-direction: column;
+  	height: 100%;
+  	width: 100%;
+	padding: 50em;
+	
+	row-gap: 36em;
+
+	background: rgba(31, 30, 44, 0.75);
+	backdrop-filter: blur(2.8px);
+
+	.matchmaking_content__header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+
+		row-gap: 5em;
+		
+		h1 {
+			color: #fff;
+			font-size: 36em;
+		}
+
+		h2 {
+			color: $white-200;
+			font-size: 20em;
+			font-weight: 500;
+
+			span {
+				color: white;
+			}
+		}
+
+		.matchmaking_content__header_loader {
+			display: inline-block;
+			position: relative;
+			width: 31em;
+			height: 40em;
+		
+			span {
+				display: inline-block;
+				position: absolute;
+				width: 7em;
+				animation: loader-animation cubic-bezier(0, 0.5, 0.5, 1) 1s infinite;
+				
+				&:nth-child(1) {
+					left: 0;
+					animation-delay: 0;
+				}
+				&:nth-child(2) {
+					left: 12em;
+					animation-delay: 0.14s;
+				}
+				&:nth-child(3) {
+					left: 24em;
+					animation-delay: 0.28s;
+				}
+			}
+			@keyframes loader-animation {
+				0% {
+					top: 0em;
+					height: 40em;
+					background: white;
+				}
+				50%, 100% {
+					top: 5em;
+					height: 30em;
+					background: rgba(255, 255, 255, 0.5);
+				}
+			}
+		}
+	}
+	
+	.matchmaking_content__btns {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		row-gap: 18em;
+
+		:first-child {
+			h2 {
+				color: $white-200;
+				font-size: 18em;
+				font-weight: 500;
+			}
+		}
+
+		p {
+			color: $white-200;
+			font-size: 18em;
+
+			span {
+				color: white;
+			}
+		}
+
+		div {
+			display: flex;
+			column-gap: 20em;
+			background-color: transparent !important;
+
+
+			&:last-child {
+				background-color: $red;
+			}
+		}
+	}
+
+	@media (max-width: $laptopL) {
+		font-size: 1.2em;
+	}
+
+	@media (max-width: $laptop) {
+		font-size: 1.1em;
+	}
+
+	@media (max-width: $tablet) {
+		font-size: 0.96em;
+	}
+
+	@media (max-width: $phone) {
+		font-size: 0.82em;
+	}
+
+	@media (max-width: 320px) {
+		font-size: 4rem;
+	}
+	
+}
+
+.btn_red {
+	background-color: $red !important;
+}

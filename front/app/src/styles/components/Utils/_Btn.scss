@@ -1,0 +1,110 @@
+.Btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8em;
+	border: none;
+	border-radius: 6em;
+	box-shadow: 0em 0em 8em 0em rgba(0, 0, 0, 0.2);
+
+	.Btn-value {
+		font-family: 'Poppins';
+		font-weight: 500;
+		line-height: 100%;
+		letter-spacing: -0.01em;
+	}
+
+	.Btn-logo {
+		width: 24em;
+		height: 24em;
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&:hover {
+		opacity: 0.9;
+	}
+}
+
+
+.Btn--type1 {
+	background: $dark-blue;
+	.Btn-value {
+		color: white;
+	}
+	.Logo--fill svg {
+		fill: white;
+	}
+}
+
+.Btn--type2 {
+	background: $background-500;
+	.Btn-value {
+		color: $cheat-blue;
+	}
+	.Logo--fill svg {
+		fill: $cheat-blue;
+	}
+}
+
+.Btn--type3 {
+	background: $background-700;
+	.Btn-value {
+		color: $cheat-blue;
+	}
+	.Logo--fill svg {
+		fill: $cheat-blue;
+	}
+}
+
+.Btn--type4 {
+	background: $background-600;
+	.Btn-value {
+		color: white;
+	}
+	.Logo--fill svg {
+		fill: white;
+	}
+}
+
+.Btn--type5 {
+	background: $background-700;
+	.Btn-value {
+		color: white;
+	}
+	.Logo--fill svg {
+		fill: white;
+	}
+}
+
+.Btn--type6 {
+	background: $red;
+	.Btn-value {
+		color: white;
+	}
+	.Logo--fill svg {
+		fill: white;
+	}
+}
+
+.Btn--type7 {
+	background: $background-700;
+	.Btn-value {
+		color: $red;
+	}
+	.Logo--fill svg {
+		fill: $red;
+	}
+}
+
+.Btn--type8 {
+	background: $background-700;
+	.Btn-value {
+		color: $green;
+	}
+	.Logo--fill svg {
+		fill: $green;
+	}
+}

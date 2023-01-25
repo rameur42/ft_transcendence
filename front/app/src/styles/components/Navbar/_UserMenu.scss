@@ -1,0 +1,41 @@
+.UserMenu-wrap {
+	display: flex;
+	padding-top: 14em;
+	position: absolute;
+	right: 0;
+	top: 100%;
+	z-index: 5;
+	visibility: hidden;
+
+	.UserMenu {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		background: $background-600;
+		padding: 20em 24em;
+		border-radius: 6em;
+		gap: 16em;
+		box-shadow: 4em 4em 6em rgba(0, 0, 0, 0.3);
+
+		.User-options {
+			border: none;
+			text-align: left;
+			background: none;
+
+			.Options-value {
+				color: white;
+				font-family: 'Poppins';
+				font-weight: 500;
+				font-size: 12em;
+				line-height: 100%;
+			}
+
+			&:hover {
+				.Options-value {
+					transition: 150ms;
+					color: $dark-blue;
+				}
+			}
+		}
+	}
+}
